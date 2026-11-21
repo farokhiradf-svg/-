@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b18">
+<title>MyNexa — Space Laboratory</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700&display=swap');
+:root{--bg:#070b18;--panel:#101a30;--panel2:#14213b;--cyan:#55e8f4;--violet:#a98aff;--pink:#f17bc9;--muted:#9aabc8;--line:#ffffff18;--good:#6de2b0;--warn:#ffcf75}
+*{box-sizing:border-box}body{margin:0;color:#eef4ff;background:radial-gradient(ellipse at 80% -10%,#24366a 0,transparent 38%),radial-gradient(ellipse at 0 55%,#261442 0,transparent 34%),var(--bg);font-family:Vazirmatn,system-ui,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;color:inherit}.shell{max-width:1240px;width:92%;margin:auto}
+header{position:sticky;top:0;z-index:20;background:#080e1deF;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.top{max-width:1240px;width:92%;margin:auto;min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{font:700 25px Orbitron,sans-serif;letter-spacing:1px;direction:ltr}.logo span{color:var(--cyan);text-shadow:0 0 20px #55e8f4}
+nav{display:flex;gap:5px;flex-wrap:wrap}.nav,.lang{background:transparent;border:1px solid transparent;border-radius:11px;padding:9px 12px;color:var(--muted)}.nav.active,.nav:hover,.lang:hover{color:var(--cyan);border-color:#55e8f455;background:#55e8f412}
+main{padding:30px 0 70px}.page{display:none;animation:up .35s ease}.page.active{display:block}@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.hero{min-height:410px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:25px}.eyebrow{font:600 11px Orbitron,sans-serif;letter-spacing:2px;color:var(--cyan);direction:ltr;display:inline-block}
+h1{font-size:clamp(32px,5vw,58px);line-height:1.4;margin:12px 0}h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 28px #55e8f455}h2{font-size:21px;margin:0 0 14px}h3{margin:8px 0}.muted,p{color:var(--muted);line-height:1.9}.hero p{max-width:550px}.btn{border:1px solid var(--cyan);border-radius:12px;padding:11px 18px;background:linear-gradient(110deg,var(--cyan),#a5f4ee);color:#06101b;font-weight:800;box-shadow:0 0 22px #55e8f426}.btn:hover{transform:translateY(-2px);box-shadow:0 0 28px #55e8f455}.ghost{background:#55e8f410;color:var(--cyan);border:1px solid #55e8f455;border-radius:11px;padding:9px 14px}.wide{width:100%;margin-top:16px}
+.scene{height:340px;position:relative;display:grid;place-items:center;perspective:800px;overflow:hidden}.planet{width:210px;height:210px;border-radius:50%;position:relative;background:radial-gradient(circle at 30% 25%,#d9ffff 0,#65d8e8 12%,#3066a5 45%,#10142f 82%);box-shadow:inset -27px -18px 35px #020513cc,0 0 70px #55dff477;animation:float 7s ease-in-out infinite;transform-style:preserve-3d}.planet:after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(105deg,transparent 35%,#030716b8 88%)}.planet.ring:before{content:"";position:absolute;width:285px;height:80px;left:-38px;top:65px;border:12px solid #c5a7ff88;border-left-color:#c5a7ff22;border-right-color:#e3d7ffbb;border-radius:50%;transform:rotate(-22deg);z-index:2}.orbit{position:absolute;width:320px;height:100px;border:1px solid #55e8f477;border-radius:50%;transform:rotate(-22deg)}.spark{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;box-shadow:0 0 12px #fff}.s1{top:18%;left:15%}.s2{top:72%;right:12%}.s3{top:13%;right:20%}.s4{bottom:13%;left:25%}@keyframes float{50%{transform:translateY(-13px) rotateY(12deg)}}
+.stats,.cards{display:grid;gap:14px}.stats{grid-template-columns:repeat(3,1fr);margin:20px 0 38px}.stat,.panel,.card{background:linear-gradient(145deg,#15213beF,#0d1529f5);border:1px solid var(--line);border-radius:18px}.stat{padding:17px;text-align:center}.stat strong{display:block;font-size:27px;color:var(--cyan)}.stat small{color:var(--muted)}.cards{grid-template-columns:repeat(4,1fr);margin:17px 0 36px}.card{padding:19px;transition:.2s;cursor:pointer}.card:hover{transform:translateY(-4px);border-color:#55e8f477}.card .ico{font-size:29px}.card p{font-size:13px;margin:5px 0}.heading{margin:18px 0 24px}.heading h1{font-size:clamp(27px,4vw,40px);margin:8px 0}.panel{padding:21px;margin-bottom:17px}.workspace{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field{margin:14px 0}.field label{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:14px;margin-bottom:7px}.field b{color:var(--cyan)}input[type=range]{width:100%;accent-color:var(--cyan)}input[type=text],select{width:100%;padding:11px;background:#080f20;color:#eef4ff;border:1px solid var(--line);border-radius:10px;outline:none}input:focus,select:focus{border-color:var(--cyan)}.preview{text-align:center}.preview .scene{height:270px}.preview .planet{width:175px;height:175px}.preview .orbit{width:270px}.viewrow{display:flex;justify-content:center;gap:8px;margin:12px}.viewrow button.active{border-color:var(--cyan);color:var(--cyan)}.twoD{border-radius:12px!important;transform:rotate(0)!important;box-shadow:0 0 55px #55dff477!important}.resultgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.result{background:#080f20;border:1px solid var(--line);padding:13px;border-radius:12px;text-align:start}.result strong{color:var(--cyan)}.result p{font-size:12px;margin:4px 0}.meter{height:9px;background:#ffffff12;border-radius:20px;overflow:hidden;margin:12px 0}.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:20px}.saved{display:flex;flex-wrap:wrap;gap:10px}.saveditem{padding:12px;border:1px solid #55e8f444;background:#080f20;border-radius:12px;min-width:150px}.saveditem button{margin:5px 3px 0 0}.solar{height:370px;display:grid;place-items:center;position:relative;overflow:hidden}.sun{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle,#fff8b1,#ffae38,#ed5725);box-shadow:0 0 55px #ff9c32;z-index:2}.orbitline{position:absolute;border:1px solid #a4b8df55;border-radius:50%;animation:spin linear infinite}.orbitline i{position:absolute;top:50%;left:-6px;width:12px;height:12px;border-radius:50%;background:var(--pc);box-shadow:0 0 13px var(--pc)}@keyframes spin{to{transform:rotate(360deg)}}.two-col{display:grid;grid-template-columns:1fr 220px;gap:15px;align-items:center}.note{font-size:12px;color:var(--muted)}.answer{border-left:3px solid var(--cyan);padding:10px 14px;background:#55e8f40c;border-radius:8px;margin-top:12px}.tag{display:inline-block;padding:4px 9px;border-radius:20px;background:#55e8f414;color:var(--cyan);font-size:12px}.list{display:grid;gap:10px}.entry{padding:13px;background:#080f20;border:1px solid var(--line);border-radius:12px}.entry p{font-size:13px;margin:4px 0}
+footer{text-align:center;padding:30px 15px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.footerlogo{font:700 20px Orbitron,sans-serif;color:#fff;direction:ltr}
+@media(max-width:850px){.hero,.workspace,.two-col{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}nav{order:3;width:100%;justify-content:center}.top{padding:12px 0}.hero{text-align:center}.hero p{margin:auto}.hero .scene{height:280px}}
+@media(max-width:480px){.shell{width:94%}.cards{gap:9px}.card{padding:13px}.stats{gap:7px}.stat{padding:12px 4px}.stat strong{font-size:22px}.nav{font-size:12px;padding:7px 9px}.resultgrid{grid-template-columns:1fr}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<header><div class="top">
+  <div class="logo">✦ My<span>Nexa</span></div>
+  <nav>
+    <button class="nav active" data-page="home" data-i18n="home">خانه</button>
+    <button class="nav" data-page="creator" data-i18n="creator">سازنده سیاره</button>
+    <button class="nav" data-page="galaxy" data-i18n="galaxy">منظومه</button>
+    <button class="nav" data-page="life" data-i18n="life">آزمایشگاه حیات</button>
+    <button class="nav" data-page="missions" data-i18n="missions">مأموریت‌ها</button>
+    <button class="nav" data-page="library" data-i18n="library">دانشنامه</button>
+  </nav>
+  <button class="lang" id="lang">EN</button>
+</div></header>
+<main class="shell">
+<section class="page active" id="home">
+ <div class="hero"><div>
+  <span class="eyebrow">NEXT GENERATION SPACE LAB</span>
+  <h1 data-i18n="hero">فراتر از زمین،<br><em>فراتر از تصور</em></h1>
+  <p data-i18n="intro">به آزمایشگاه فضایی MyNexa خوش آمدی. جهان‌های تازه بساز، شرایط آن‌ها را بررسی کن و با شگفتی‌های کیهان آشنا شو.</p>
+  <button class="btn" data-go="creator" data-i18n="start">شروع کاوش ←</button>
+ </div><div class="scene"><div class="planet ring"></div><div class="orbit"></div><i class="spark s1"></i><i class="spark s2"></i><i class="spark s3"></i><i class="spark s4"></i></div></div>
+ <div class="stats"><div class="stat"><strong id="count">0</strong><small data-i18n="created">سیاره ساخته‌شده</small></div><div class="stat"><strong>06</strong><small data-i18n="modules">آزمایشگاه تعاملی</small></div><div class="stat"><strong>∞</strong><small data-i18n="worlds">جهان‌های ممکن</small></div></div>
+ <h2 data-i18n="explore">مرکز اکتشافات</h2>
+ <div class="cards">
+  <article class="card" data-go="creator"><div class="ico">🪐</div><h3>Planet Creator</h3><p data-i18n="c1">سیاره‌ای با ویژگی‌های دلخواه بساز.</p></article>
+  <article class="card" data-go="galaxy"><div class="ico">🌌</div><h3>Galaxy Builder</h3><p data-i18n="c2">منظومه‌ای با مدارهای متحرک طراحی کن.</p></article>
+  <article class="card" data-go="life"><div class="ico">🧬</div><h3>Life Lab</h3><p data-i18n="c3">شرایط محیطی و امکان حیات را بررسی کن.</p></article>
+  <article class="card" data-go="missions"><div class="ico">🚀</div><h3>Mission Center</h3><p data-i18n="c4">دانسته‌های فضایی‌ات را به چالش بکش.</p></article>
+ </div>
+ <div class="panel"><span class="eyebrow">MISSION BRIEFING</span><h2 data-i18n="brief">هر کشف بزرگ با یک پرسش آغاز می‌شود.</h2><p data-i18n="briefp">آیا سیاره‌ای با دو برابر گرانش زمین می‌تواند جو پایداری داشته باشد؟ در MyNexa متغیرها را تغییر بده و نتیجه مدل آموزشی را بررسی کن.</p></div>
+</section>
+
+<section class="page" id="creator">
+ <div class="heading"><span class="eyebrow">PLANET ENGINEERING</span><h1 data-i18n="ctitle">آزمایشگاه ساخت سیاره</h1><p data-i18n="cintro">پارامترهای جهان خودت را تنظیم کن و گزارش تحلیلی بگیر.</p></div>
+ <div class="workspace">
+  <div class="panel">
+   <h2 data-i18n="settings">⚙ تنظیمات سیاره</h2>
+   <div class="field"><label data-i18n="name">نام سیاره</label><input id="pname" type="text" maxlength="28" value="Nexa-01"></div>
+   <div class="field"><label><span data-i18n="temp">دمای سطح</span><b><span id="tempv">20</span> °C</b></label><input id="temp" type="range" min="-200" max="200" value="20"></div>
+   <div class="field"><label><span data-i18n="water">آب سطحی</span><b><span id="waterv">60</span>%</b></label><input id="water" type="range" min="0" max="100" value="60"></div>
+   <div class="field"><label><span data-i18n="oxygen">اکسیژن جو</span><b><span id="oxygenv">21</span>%</b></label><input id="oxygen" type="range" min="0" max="100" value="21"></div>
+   <div class="field"><label><span data-i18n="gravity">گرانش نسبت به زمین</span><b><span id="gravityv">1.0</span>×</b></label><input id="gravity" type="range" min="1" max="30" value="10"></div>
+   <div class="field"><label data-i18n="size">اندازه سیاره</label><select id="size"><option value="small" data-i18n="small">کوچک</option><option value="medium" selected data-i18n="medium">متوسط</option><option value="large" data-i18n="large">بزرگ</option></select></div>
+   <div class="field"><label data-i18n="surface">جنس سطح</label><select id="surface"><option value="rock" data-i18n="rock">سنگی</option><option value="ice" data-i18n="ice">یخی</option><option value="lava" data-i18n="lava">آتشفشانی</option><option value="ocean" data-i18n="ocean">اقیانوسی</option><option value="desert" data-i18n="desert">بیابانی</option></select></div>
+   <button class="btn wide" id="generate" data-i18n="generate">ساخت و تحلیل سیاره ✦</button>
+  </div>
+  <div class="panel preview">
+   <span class="eyebrow">PLANET PREVIEW</span><div class="scene"><div id="preview" class="planet"></div><div class="orbit"></div><i class="spark s1"></i><i class="spark s2"></i></div>
+   <h2 id="previewname">Nexa-01</h2><p id="summary" class="muted">سیاره خود را طراحی کن.</p>
+   <div class="viewrow"><button class="ghost active" data-view="3d" data-i18n="view3d">نمای سه‌بعدی</button><button class="ghost" data-view="2d" data-i18n="view2d">نمای دوبعدی</button></div>
+   <button class="ghost wide" id="save" data-i18n="save">☆ ذخیره سیاره</button>
+  </div>
+ </div>
+ <div class="panel"><h2 data-i18n="report">🧪 گزارش تحلیل علمی</h2><div id="report" class="muted" data-i18n="reportempty">ابتدا سیاره‌ات را بساز تا گزارش نمایش داده شود.</div></div>
+ <div class="panel"><h2 data-i18n="saved">سیاره‌های ذخیره‌شده</h2><div class="saved" id="saved"></div></div>
+</section>
+
+<section class="page" id="galaxy">
+ <div class="heading"><span class="eyebrow">ORBITAL SYSTEM DESIGNER</span><h1 data-i18n="gtitle">سازنده منظومه</h1><p data-i18n="gintro">تعداد سیاره‌ها را انتخاب کن و یک منظومه نمایشی بساز.</p></div>
+ <div class="panel two-col"><div class="solar" id="solar"><div class="sun"></div></div><div><div class="field"><label><span data-i18n="number">تعداد سیاره‌ها</span><b id="numberv">5</b></label><input id="number" type="range" min="1" max="8" value="5"></div><button class="btn wide" id="build" data-i18n="build">ساخت منظومه</button><p class="note" data-i18n="orbitnote">این نمایش شماتیک است؛ اندازه‌ها و سرعت‌ها در مقیاس واقعی نیستند.</p></div></div>
+ <div class="panel" id="galaxyinfo" data-i18n="gempty">منظومه‌ای بساز تا اطلاعات آن اینجا نمایش داده شود.</div>
+</section>
+
+<section class="page" id="life">
+ <div class="heading"><span class="eyebrow">ASTROBIOLOGY & ENVIRONMENT</span><h1 data-i18n="ltitle">آزمایشگاه امکان حیات</h1><p data-i18n="lintro">شرایط سیاره ساخته‌شده را از دیدگاه زیست‌پذیری بررسی کن.</p></div>
+ <div class="panel" id="lifereport"><h2 data-i18n="last">آخرین تحلیل</h2><p class="muted" data-i18n="lempty">ابتدا در سازنده سیاره یک سیاره بساز و تحلیل کن.</p></div>
+ <div class="panel"><h2 data-i18n="important">یک نکته علمی مهم</h2><p data-i18n="science">وجود اکسیژن شرط ضروری همه شکل‌های فرضی حیات نیست. زیست‌پذیری به عوامل زیادی مانند آب مایع، فشار، ترکیب جو، منبع انرژی، شیمی محیط و پایداری بلندمدت وابسته است. این آزمایشگاه صرفاً یک مدل آموزشی ساده ارائه می‌دهد.</p></div>
+</section>
+
+<section class="page" id="missions">
+ <div class="heading"><span class="eyebrow">MISSION CONTROL</span><h1 data-i18n="mtitle">مرکز مأموریت‌ها</h1><p data-i18n="mintro">برای هر مأموریت، یک پرسش علمی را بررسی کن.</p></div>
+ <div class="cards" id="missioncards">
+  <article class="card mission" data-answer="آب می‌تواند به شناخت تاریخ اقلیم مریخ و بررسی شرایط زیست‌پذیری گذشته آن کمک کند."><div class="ico">🔴</div><h3>مأموریت مریخ</h3><p>چرا نشانه‌های آب در مریخ مهم‌اند؟</p><span class="tag">ASTROGEOLOGY</span></article>
+  <article class="card mission" data-answer="اروپا احتمالاً اقیانوسی زیر پوسته یخی خود دارد؛ آب مایع و انرژی از دلایل جذابیت آن برای اخترزیست‌شناسی هستند."><div class="ico">🧊</div><h3>جهان‌های یخی</h3><p>چرا قمر اروپا مورد توجه است؟</p><span class="tag">OCEAN WORLDS</span></article>
+  <article class="card mission" data-answer="فاصله از ستاره بر انرژی دریافتی اثر می‌گذارد، اما جو، ابرها و ویژگی سطح هم در دمای سیاره نقش دارند."><div class="ico">☀️</div><h3>منطقه زیست‌پذیر</h3><p>چرا فاصله از ستاره اهمیت دارد؟</p><span class="tag">EXOPLANETS</span></article>
+  <article class="card mission" data-answer="میدان مغناطیسی می‌تواند به منحرف کردن بخشی از ذرات باردار باد ستاره‌ای کمک کند؛ میزان حفاظت به عوامل دیگری نیز بستگی دارد."><div class="ico">🧲</div><h3>سپر مغناطیسی</h3><p>میدان مغناطیسی چه نقشی دارد؟</p><span class="tag">PLANETARY PHYSICS</span></article>
+ </div>
+ <div class="panel" id="missionanswer"><p class="muted" data-i18n="mempty">یک مأموریت را انتخاب کن تا پاسخ علمی آن را ببینی.</p></div>
+</section>
+
+<section class="page" id="library">
+ <div class="heading"><span class="eyebrow">COSMIC KNOWLEDGE BASE</span><h1 data-i18n="etitle">دانشنامه کیهانی</h1><p data-i18n="eintro">مفاهیم پایه برای کاوش دقیق‌تر جهان.</p></div>
+ <div class="list">
+  <div class="entry"><h3>🪐 سیاره فراخورشیدی | Exoplanet</h3><p>سیاره‌ای که به دور ستاره‌ای غیر از خورشید می‌چرخد. برخی از آن‌ها با روش گذر یا سرعت شعاعی شناسایی می‌شوند.</p></div>
+  <div class="entry"><h3>🌡 منطقه زیست‌پذیر | Habitable Zone</h3><p>محدوده‌ای پیرامون یک ستاره که در شرایط مناسب جوی، امکان وجود آب مایع روی سطح سیاره می‌تواند فراهم شود.</p></div>
+  <div class="entry"><h3>🌫 جو | Atmosphere</h3><p>لایه‌ای از گازها پیرامون یک جرم آسمانی که می‌تواند بر دما، فشار، آب‌وهوا و حفاظت سطح اثر بگذارد.</p></div>
+  <div class="entry"><h3>🧬 اخترزیست‌شناسی | Astrobiology</h3><p>شاخه‌ای میان‌رشته‌ای که منشأ، تکامل، پراکندگی و آینده حیات در زمین و فراتر از آن را بررسی می‌کند.</p></div>
+  <div class="entry"><h3>⭐ کوتوله سرخ | Red Dwarf</h3><p>نوعی ستاره کوچک و نسبتاً سرد که فراوان است و می‌تواند میزبان سیاره‌های فراخورشیدی باشد.</p></div>
+  <div class="entry"><h3>🛰 روش گذر | Transit Method</h3><p>وقتی سیاره از مقابل ستاره خود عبور می‌کند، روشنایی ستاره اندکی کاهش می‌یابد؛ این تغییر می‌تواند نشانه وجود سیاره باشد.</p></div>
+ </div>
+</section>
+</main>
+<footer><div class="footerlogo">✦ MyNexa</div><p data-i18n="footer">کاوش ناشناخته‌ها؛ فهم بهتر جهان.</p><small>Educational Space Laboratory · MyNexa Pro</small></footer>
+<script>
+const $=id=>document.getElementById(id);
+let lang='fa',current=null,view='3d',saved=JSON.parse(localStorage.getItem('mynexa_saved_v1')||'[]');
+const words={
+fa:{home:'خانه',creator:'سازنده سیاره',galaxy:'منظومه',life:'آزمایشگاه حیات',missions:'مأموریت‌ها',library:'دانشنامه',hero:'فراتر از زمین،<br><em>فراتر از تصور</em>',intro:'به آزمایشگاه فضایی MyNexa خوش آمدی. جهان‌های تازه بساز، شرایط آن‌ها را بررسی کن و با شگفتی‌های کیهان آشنا شو.',start:'شروع کاوش ←',created:'سیاره ساخته‌شده',modules:'آزمایشگاه تعاملی',worlds:'جهان‌های ممکن',explore:'مرکز اکتشافات',c1:'سیاره‌ای با ویژگی‌های دلخواه بساز.',c2:'منظومه‌ای با مدارهای متحرک طراحی کن.',c3:'شرایط محیطی و امکان حیات را بررسی کن.',c4:'دانسته‌های فضایی‌ات را به چالش بکش.',brief:'هر کشف بزرگ با یک پرسش آغاز می‌شود.',briefp:'آیا سیاره‌ای با دو برابر گرانش زمین می‌تواند جو پایداری داشته باشد؟ در MyNexa متغیرها را تغییر بده و نتیجه مدل آموزشی را بررسی کن.',ctitle:'آزمایشگاه ساخت سیاره',cintro:'پارامترهای جهان خودت را تنظیم کن و گزارش تحلیلی بگیر.',settings:'⚙ تنظیمات سیاره',name:'نام سیاره',temp:'دمای سطح',water:'آب سطحی',oxygen:'اکسیژن جو',gravity:'گرانش نسبت به زمین',size:'اندازه سیاره',small:'کوچک',medium:'متوسط',large:'بزرگ',surface:'جنس سطح',rock:'سنگی',ice:'یخی',lava:'آتشفشانی',ocean:'اقیانوسی',desert:'بیابانی',generate:'ساخت و تحلیل سیاره ✦',view3d:'نمای سه‌بعدی',view2d:'نمای دوبعدی',save:'☆ ذخیره سیاره',report:'🧪 گزارش تحلیل علمی',reportempty:'ابتدا سیاره‌ات را بساز تا گزارش نمایش داده شود.',saved:'سیاره‌های ذخیره‌شده',gtitle:'سازنده منظومه',gintro:'تعداد سیاره‌ها را انتخاب کن و یک منظومه نمایشی بساز.',number:'تعداد سیاره‌ها',build:'ساخت منظومه',orbitnote:'این نمایش شماتیک است؛ اندازه‌ها و سرعت‌ها در مقیاس واقعی نیستند.',gempty:'منظومه‌ای بساز تا اطلاعات آن اینجا نمایش داده شود.',ltitle:'آزمایشگاه امکان حیات',lintro:'شرایط سیاره ساخته‌شده را از دیدگاه زیست‌پذیری بررسی کن.',last:'آخرین تحلیل',lempty:'ابتدا در سازنده سیاره یک سیاره بساز و تحلیل کن.',important:'یک نکته علمی مهم',science:'وجود اکسیژن شرط ضروری همه شکل‌های فرضی حیات نیست. زیست‌پذیری به عوامل زیادی مانند آب مایع، فشار، ترکیب جو، منبع انرژی، شیمی محیط و پایداری بلندمدت وابسته است. این آزمایشگاه صرفاً یک مدل آموزشی ساده ارائه می‌دهد.',mtitle:'مرکز مأموریت‌ها',mintro:'برای هر مأموریت، یک پرسش علمی را بررسی کن.',mempty:'یک مأموریت را انتخاب کن تا پاسخ علمی آن را ببینی.',etitle:'دانشنامه کیهانی',eintro:'مفاهیم پایه برای کاوش دقیق‌تر جهان.',footer:'کاوش ناشناخته‌ها؛ فهم بهتر جهان.',createfirst:'ابتدا یک سیاره بساز.',stored:'ذخیره شد!',deleted:'حذف شد.',load:'بارگذاری',delete:'حذف',score:'شاخص آموزشی سازگاری پارامترها',tempcheck:'دمای انتخاب‌شده',watercheck:'آب سطحی',oxycheck:'اکسیژن جو',gravcheck:'گرانش',yes:'در بازه نمونه',no:'خارج از بازه نمونه',caution:'این امتیاز، احتمال واقعی وجود حیات نیست؛ فقط یک مدل آموزشی ساده است.',gmade:'منظومه ساخته شد',planets:'سیاره',orbit:'مدار',mtemp:'برای آب مایع، فشار و ترکیب جو نیز اهمیت دارند.',mwater:'وجود آب مایع یکی از عوامل مهم در جست‌وجوی حیات شناخته‌شده است.',moxy:'اکسیژن برای همه شکل‌های ممکن حیات ضروری نیست.',mgrav:'گرانش بر جو و شرایط سطح اثر می‌گذارد.'},
+en:{home:'Home',creator:'Planet Creator',galaxy:'Galaxy',life:'Life Lab',missions:'Missions',library:'Encyclopedia',hero:'Beyond Earth,<br><em>Beyond Imagination</em>',intro:'Welcome to MyNexa Space Laboratory. Create new worlds, explore their conditions and discover the wonders of the cosmos.',start:'Start exploring →',created:'Planets created',modules:'Interactive labs',worlds:'Possible worlds',explore:'Exploration Center',c1:'Build a planet with your own parameters.',c2:'Design a system with moving orbits.',c3:'Explore environmental conditions and habitability.',c4:'Challenge your space knowledge.',brief:'Every great discovery begins with a question.',briefp:'Could a planet with twice Earth’s gravity maintain a stable atmosphere? Change the variables and explore this educational model.',ctitle:'Planet Engineering Lab',cintro:'Configure your world and generate an analytical report.',settings:'⚙ Planet settings',name:'Planet name',temp:'Surface temperature',water:'Surface water',oxygen:'Atmospheric oxygen',gravity:'Gravity relative to Earth',size:'Planet size',small:'Small',medium:'Medium',large:'Large',surface:'Surface type',rock:'Rocky',ice:'Icy',lava:'Volcanic',ocean:'Oceanic',desert:'Desert',generate:'Generate & analyze ✦',view3d:'3D view',view2d:'2D view',save:'☆ Save planet',report:'🧪 Scientific analysis',reportempty:'Generate a planet to see its report.',saved:'Saved planets',gtitle:'Galaxy Builder',gintro:'Choose the number of planets and create a visual system.',number:'Number of planets',build:'Build system',orbitnote:'Schematic visualization; sizes and speeds are not to scale.',gempty:'Build a system to see its information here.',ltitle:'Habitability Lab',lintro:'Explore your planet’s environmental conditions.',last:'Latest analysis',lempty:'Create and analyze a planet first.',important:'An important scientific note',science:'Oxygen is not required by every hypothetical form of life. Habitability depends on many factors, including liquid water, pressure, atmospheric composition, energy sources, environmental chemistry and long-term stability. This lab provides a simplified educational model only.',mtitle:'Mission Control',mintro:'Explore a scientific question in each mission.',mempty:'Choose a mission to reveal its scientific answer.',etitle:'Cosmic Encyclopedia',eintro:'Core concepts for exploring the universe.',footer:'Explore the unknown. Understand the universe.',createfirst:'Generate a planet first.',stored:'Saved!',deleted:'Deleted.',load:'Load',delete:'Delete',score:'Educational parameter compatibility index',tempcheck:'Selected temperature',watercheck:'Surface water',oxycheck:'Atmospheric oxygen',gravcheck:'Gravity',yes:'Within sample range',no:'Outside sample range',caution:'This score is not the probability of life; it is a simplified educational model.',gmade:'System created',planets:'planets',orbit:'orbit',mtemp:'Atmospheric pressure and composition also matter for liquid water.',mwater:'Liquid water is an important factor in the search for known forms of life.',moxy:'Oxygen is not essential for every possible form of life.',mgrav:'Gravity affects the atmosphere and surface conditions.'}
+};
+function t(k){return words[lang][k]||k}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>go(b.dataset.page));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang==='fa'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{let k=el.dataset.i18n;if(words[lang][k])el.innerHTML=words[lang][k]});$('lang').textContent=lang==='fa'?'EN':'FA'}
+$('lang').onclick=()=>{lang=lang==='fa'?'en':'fa';applyLang();if(current)renderAnalysis(current);renderSaved()};
+const ranges=[['temp','tempv',v=>v],['water','waterv',v=>v],['oxygen','oxygenv',v=>v],['gravity','gravityv',v=>(v/10).toFixed(1)]];
+ranges.forEach(([id,out,fmt])=>$(id).addEventListener('input',()=>$(out).textContent=fmt(Number($(id).value))));
+const surfaces={rock:'radial-gradient(circle at 30% 25%,#e3c6a1,#a46e50 38%,#25243b 82%)',ice:'radial-gradient(circle at 30% 25%,#fff,#a9edff 40%,#345d9b 85%)',lava:'radial-gradient(circle at 30% 25%,#ffe39a,#ff572b 40%,#5a152d 85%)',ocean:'radial-gradient(circle at 30% 25%,#c5fff4,#21a9d8 36%,#071b58 85%)',desert:'radial-gradient(circle at 30% 25%,#fff0b7,#d79b4b 42%,#603a31 85%)'};
+function data(){return{name:$('pname').value.trim()||'Nexa-01',temp:+$('temp').value,water:+$('water').value,oxygen:+$('oxygen').value,gravity:+$('gravity').value/10,size:$('size').value,surface:$('surface').value}}
+function score(p){let checks=[{key:'tempcheck',ok:p.temp>=0&&p.temp<=50,val:p.temp+' °C',why:'mtemp'},{key:'watercheck',ok:p.water>=30,val:p.water+'%',why:'mwater'},{key:'oxycheck',ok:p.oxygen>=10&&p.oxygen<=30,val:p.oxygen+'%',why:'moxy'},{key:'gravcheck',ok:p.gravity>=.5&&p.gravity<=2,val:p.gravity.toFixed(1)+'×',why:'mgrav'}];return{checks,score:checks.filter(c=>c.ok).length*25}}
+function renderPlanet(p){let el=$('preview');el.style.background=surfaces[p.surface];let s={small:135,medium:175,large:220}[p.size];el.style.width=s+'px';el.style.height=s+'px';el.classList.toggle('twoD',view==='2d');$('previewname').textContent=p.name;$('summary').textContent=`${p.temp} °C · ${p.water}% H₂O · ${p.gravity.toFixed(1)}× g`}
+function renderAnalysis(p){let a=score(p),msg=lang==='fa'?(a.score>=75?'برخی پارامترهای انتخاب‌شده در بازه نمونه این مدل قرار دارند.':'این ترکیب پارامترها چالش‌های محیطی قابل‌توجهی دارد.'):(a.score>=75?'Some selected parameters fall within this model’s sample ranges.':'This parameter combination presents notable environmental challenges.');$('report').innerHTML=`<h3>${msg}</h3><p class="muted">${t('score')}: <b style="color:var(--cyan)">${a.score}/100</b></p><div class="meter"><span style="width:${a.score}%"></span></div><div class="resultgrid">${a.checks.map(c=>`<div class="result"><strong>${t(c.key)} · ${c.ok?'✓':'!'}</strong><p>${c.val} — ${t(c.ok?'yes':'no')}</p><p>${t(c.why)}</p></div>`).join('')}</div><p class="note">${t('caution')}</p>`;$('lifereport').innerHTML=`<h2>${t('last')}</h2><h3>${p.name}</h3><p>${msg}</p><p>${t('score')}: ${a.score}/100</p><p class="note">${t('caution')}</p>`}
+$('generate').onclick=()=>{current=data();renderPlanet(current);renderAnalysis(current)};
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));if(current)renderPlanet(current);else $('preview').classList.toggle('twoD',view==='2d')});
+function renderSaved(){$('count').textContent=saved.length;if(!saved.length){$('saved').innerHTML=`<p class="muted">${lang==='fa'?'هنوز سیاره‌ای ذخیره نشده است.':'No saved planets yet.'}</p>`;return}$('saved').innerHTML=saved.map((p,i)=>`<div class="saveditem"><b>${escapeHTML(p.name)}</b><p class="note">${p.temp} °C · ${p.water}% H₂O</p><button class="ghost" data-load="${i}">${t('load')}</button><button class="ghost" data-delete="${i}">${t('delete')}</button></div>`).join('');document.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{let p=saved[+b.dataset.load];current=p;$('pname').value=p.name;$('temp').value=p.temp;$('water').value=p.water;$('oxygen').value=p.oxygen;$('gravity').value=p.gravity*10;$('size').value=p.size;$('surface').value=p.surface;ranges.forEach(([id,out,fmt])=>$(out).textContent=fmt(+$ (id).value));renderPlanet(p);renderAnalysis(p);go('creator')});document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>{saved.splice(+b.dataset.delete,1);persist();renderSaved()})}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function persist(){localStorage.setItem('mynexa_saved_v1',JSON.stringify(saved))}
+$('save').onclick=()=>{if(!current){alert(t('createfirst'));return}saved.push({...current});persist();renderSaved();alert(t('stored'))};
+$('number').oninput=()=>$('numberv').textContent=$('number').value;
+$('build').onclick=()=>{let n=+$('number').value,solar=$('solar');solar.innerHTML='<div class="sun"></div>';let colors=['#8bd7ff','#e6a76c','#ddd9e8','#f4a4c5','#8de8a7','#d9a3ff','#f5dc79','#a2e7ef'];for(let i=0;i<n;i++){let o=document.createElement('div');o.className='orbitline';let d=95+(i+1)*42;o.style.width=d+'px';o.style.height=d+'px';o.style.animationDuration=(9+i*4)+'s';o.style.setProperty('--pc',colors[i]);o.innerHTML='<i></i>';solar.appendChild(o)}$('galaxyinfo').innerHTML=`<h2>${t('gmade')} ✦</h2><p>${n} ${t('planets')} · ${n} ${t('orbit')}</p><p class="note">${t('orbitnote')}</p>`};
+document.querySelectorAll('.mission').forEach(c=>c.onclick=()=>{$('missionanswer').innerHTML=`<h3>🔬 ${lang==='fa'?'پاسخ علمی':'Scientific answer'}</h3><p>${c.dataset.answer}</p>`});
+renderSaved();applyLang();
+</script>
+</body></html>
